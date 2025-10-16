@@ -38,17 +38,16 @@ def export() -> None:
     from dalia_dif.dif13.export.fti import write_sqlite_fti
     from dalia_dif.namespace import get_base_graph
 
-    graph = get_base_graph()
+    graph_dif13 = get_base_graph()
     with DIF13_JSONL_PATH.open("w") as file:
         for path in INPUT_PATHS:
-            for record in read_dif13(path):
-                record.add_to_graph(graph)
-                file.write(record.model_dump_json())
+            for record_dif13 in read_dif13(path):
+                record_dif13.add_to_graph(graph_dif13)
+                file.write(record_dif13.model_dump_json())
+    graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
 
-    graph.serialize(DIF13_TTL_PATH, format="turtle")
-
-    export_chart(graph, [CHART_SVG_PATH, CHART_PNG_PATH])
-    write_sqlite_fti(graph, SQLITE_FTI_PATH)
+    export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
+    write_sqlite_fti(graph_dif13, SQLITE_FTI_PATH)
 
 
 @main.command()
