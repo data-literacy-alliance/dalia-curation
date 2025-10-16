@@ -1,9 +1,9 @@
 # dalia-oers
 
-OERs curated by the DALIA team in the DIF format.
+OERs curated by the DALIA team in the DIF v1.3 format.
 
-The DALIA Knowledge Graph (DALIA-KG) can be downloaded as
-[RDF](export/dalia.ttl) or [JSON lines](export/dalia.jsonl).
+The DALIA Knowledge Graph (DALIA-KG) encoded in the DALIA Interchange Format (DIF) v1.3 can be downloaded as
+[RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl).
 
 ## Summary
 
