@@ -1,4 +1,4 @@
-# dalia-oers
+# DALIA Curation
 
 This repository contains open educational resources (OERs) curated
 by the DALIA team in the DALIA Interchange Format (DIF).
