@@ -1,11 +1,22 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "click",
+#     "dalia-dif",
+#     "pandas",
+#     "pystow",
+#     "rdflib",
+# ]
+# ///
+
 """A CLI for maintaining DALIA-curated OERs."""
 
-from dalia_dif.dif13 import read_dif13
+import unittest
 import uuid
 from pathlib import Path
 
 import click
-import pandas as pd
+from dalia_dif.dif13 import read_dif13
 
 HERE = Path(__file__).parent.resolve()
 INPUT_DIRECTORY = HERE.joinpath("curation")
@@ -53,6 +64,8 @@ def export() -> None:
 @main.command()
 def lint():
     """Lint CSV files in the curation directory."""
+    import pandas as pd
+
     count = 0
     for path in INPUT_PATHS:
         df = pd.read_csv(path, sep=",")
@@ -64,6 +77,47 @@ def lint():
             df.to_csv(path, sep=",", index=False)
         count += len(df)
     click.echo(f"There are a total of {count:,} rows")
+
+
+class TestParity(unittest.TestCase):
+    """Test parity."""
+
+    def test_parity(self) -> None:
+        """Test parity."""
+        import rdflib
+        from dalia_dif.dif13 import parse_dif13_row
+        from dalia_dif.dif13.legacy import parse_dif13_row_legacy
+        from pystow.utils import safe_open_dict_reader
+        from rdflib.compare import isomorphic
+
+        for path in INPUT_PATHS:
+            with safe_open_dict_reader(path, delimiter=",") as reader:
+                for i, row in enumerate(reader, start=1):
+                    if not row:
+                        continue
+                    with self.subTest(path=path.name, line=i):
+                        self.maxDiff = None
+                        old_graph = rdflib.Graph()
+                        parse_dif13_row_legacy(old_graph, i, row, path=path)
+
+                        obj = parse_dif13_row(path.name, i, row)
+                        self.assertIsNotNone(
+                            obj,
+                            msg=f"see old graph:\n\n{old_graph.serialize(format='ttl')}",
+                        )
+                        new_graph = obj.get_graph()
+                        if not isomorphic(old_graph, new_graph):
+                            self.assertEqual(
+                                old_graph.serialize(format="ttl"),
+                                new_graph.serialize(format="ttl"),
+                                msg=f"\n\nfailed on {path.name} row {i}",
+                            )
+
+
+@main.command()
+def parity() -> None:
+    """Test that the new output creates the same graphs as the old one."""
+    TestParity().test_parity()
 
 
 if __name__ == "__main__":
