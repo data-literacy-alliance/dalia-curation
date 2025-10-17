@@ -12,7 +12,6 @@
 """A CLI for maintaining DALIA-curated OERs."""
 
 import unittest
-import uuid
 from pathlib import Path
 
 import click
@@ -36,13 +35,6 @@ def main() -> None:
 
 
 @main.command()
-def validate() -> None:
-    """Validate all CSV files in the curation directory."""
-    for path in INPUT_PATHS:
-        read_dif13(path)
-
-
-@main.command()
 def export() -> None:
     """Make exports."""
     from dalia_dif.dif13.export.charts import export_chart
@@ -59,24 +51,6 @@ def export() -> None:
 
     export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
     write_sqlite_fti(graph_dif13, SQLITE_FTI_PATH)
-
-
-@main.command()
-def lint():
-    """Lint CSV files in the curation directory."""
-    import pandas as pd
-
-    count = 0
-    for path in INPUT_PATHS:
-        df = pd.read_csv(path, sep=",")
-        if "DALIA_ID" not in df.columns:
-            click.secho(f"missing DALIA_ID in {path}")
-            xx = ["DALIA_ID", *df.columns]
-            df["DALIA_ID"] = df.index.map(lambda _: str(uuid.uuid4()))
-            df = df[xx]
-            df.to_csv(path, sep=",", index=False)
-        count += len(df)
-    click.echo(f"There are a total of {count:,} rows")
 
 
 class TestParity(unittest.TestCase):
@@ -115,7 +89,7 @@ class TestParity(unittest.TestCase):
 
 
 @main.command()
-def parity() -> None:
+def test() -> None:
     """Test that the new output creates the same graphs as the old one."""
     TestParity().test_parity()
 
