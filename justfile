@@ -1,5 +1,5 @@
 lint:
-    uvx dalia_dif lint curation/
+    uvx --with pandas dalia_dif lint curation/
 
 validate:
     uvx dalia_dif validate curation/
