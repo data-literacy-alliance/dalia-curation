@@ -16,6 +16,10 @@ team in the DALIA Interchange Format (DIF).
    2. add a new file following this tutorial
       https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
 
+This repository is set up to use continuous integration (CI) to run a validation
+on all CSV files on commits and pull requests, so you will get immediate
+feedback on any errors.
+
 ## Exports
 
 The DALIA Knowledge Graph (DALIA-KG) encoded in the DIF v1.3 can be downloaded
