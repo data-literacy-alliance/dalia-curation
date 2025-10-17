@@ -1,12 +1,25 @@
 # DALIA Curation
 
-This repository contains open educational resources (OERs) curated
-by the DALIA team in the DALIA Interchange Format (DIF).
+This repository contains open educational resources (OERs) curated by the DALIA
+team in the DALIA Interchange Format (DIF).
+
+## Contributing
+
+1. read the
+   [curation guide](https://github.com/data-literacy-alliance/dalia-dif/blob/main/docs/curation.md)
+   to understand the tabular format.
+2. After signing in to GitHub, do one of the following:
+   1. edit a file in the repository by navigating through the
+      [curation/](curation/) folder then press the pencil icon in the top-right
+      corner. Click the big green button to create a commit then again the next
+      big green button to create a PR.
+   2. add a new file following this tutorial
+      https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
 
 ## Exports
 
-The DALIA Knowledge Graph (DALIA-KG) encoded in the DIF v1.3 can be downloaded as
-[RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl).
+The DALIA Knowledge Graph (DALIA-KG) encoded in the DIF v1.3 can be downloaded
+as [RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl).
 
 ## Summary
 
