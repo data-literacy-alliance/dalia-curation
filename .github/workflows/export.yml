@@ -1,0 +1,34 @@
+name: Update Exports
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'curation/*.csv'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Install uv"
+        uses: "astral-sh/setup-uv@v3"
+
+      - name: Run the export functionality
+        run:
+          uvx -p ${{ matrix.python-version }} --from rust-just just export
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "🦙 Update exports" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
