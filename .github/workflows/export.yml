@@ -19,7 +19,7 @@ jobs:
 
       - name: Run the export functionality
         run:
-          uvx -p ${{ matrix.python-version }} --from rust-just just export
+          uvx -p 3.13 --from rust-just just export
 
       - name: Commit files
         run: |
