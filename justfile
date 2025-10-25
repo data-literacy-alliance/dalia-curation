@@ -8,4 +8,4 @@ test:
     uv run main.py test
 
 export:
-    uv run --with matplotlib --with seaborn main.py export
+    uv run main.py export
