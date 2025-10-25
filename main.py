@@ -2,8 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "click",
-#     "dalia-dif",
-#     "pandas",
+#     "dalia-dif[export,fti]>=0.0.9",
 #     "pystow",
 #     "rdflib",
 # ]
@@ -50,6 +49,8 @@ def export() -> None:
     graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
 
     export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
+    if SQLITE_FTI_PATH.is_file():
+       SQLITE_FTI_PATH.unlink()
     write_sqlite_fti(graph_dif13, SQLITE_FTI_PATH)
 
 
