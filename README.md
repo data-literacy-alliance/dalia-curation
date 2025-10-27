@@ -41,6 +41,34 @@ incorporates both the original DALIA curations (licensed under CC0) and:
 
 ![](export/summary.svg)
 
+## Case Study
+
+The following SPARQL query federates the DALIA-KG and NFDI4Chem to connect
+training materials in DALIA about the instruments used to produce data in
+experiments in Chemotion.
+
+```sparql
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX CHMO: <http://purl.obolibrary.org/obo/CHMO_>
+PREFIX nfdi4chem.doi: <https://doi.org/10.14272/>
+PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX educor: <https://github.com/tibonto/educor#>
+
+SELECT *
+WHERE {
+    ?oer a educor:EducationalResource .
+    ?oer oboInOwl:hasDbXref ?measurementProcess .
+
+    # This subquery connects datasets, experiments, and the
+    # measurement processes using the NFDI4Chem knowledge graph
+    SERVICE <https://search.nfdi4chem.de/sparql> {
+        ?dataset prov:wasGeneratedBy/prov:used ?experiment .
+        ?experiment prov:wasGeneratedBy/rdf:type ?measurementProcess .
+    }
+}
+```
+
 ## 👋 Attribution
 
 ### ⚖️ License
