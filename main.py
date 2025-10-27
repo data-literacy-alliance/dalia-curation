@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "click",
-#     "dalia-dif[export,fti]>=0.0.10",
+#     "dalia-dif[export,fti]>=0.0.11",
 #     "pystow",
 #     "rdflib",
 # ]
@@ -37,6 +37,7 @@ def main() -> None:
 def export() -> None:
     """Make exports."""
     from dalia_dif.dif13.export.charts import export_chart
+    from dalia_dif.dif13.rdf import add_background_triples
     from dalia_dif.dif13.export.fti import write_sqlite_fti
     from dalia_dif.namespace import get_base_graph
 
@@ -46,11 +47,12 @@ def export() -> None:
             for record_dif13 in read_dif13(path):
                 record_dif13.add_to_graph(graph_dif13)
                 file.write(record_dif13.model_dump_json())
+    add_background_triples(graph_dif13)
     graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
 
     export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
     if SQLITE_FTI_PATH.is_file():
-       SQLITE_FTI_PATH.unlink()
+        SQLITE_FTI_PATH.unlink()
     write_sqlite_fti(graph_dif13, SQLITE_FTI_PATH)
 
 
