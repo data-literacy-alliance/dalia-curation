@@ -23,7 +23,19 @@ feedback on any errors.
 ## Exports
 
 The DALIA Knowledge Graph (DALIA-KG) encoded in the DIF v1.3 can be downloaded
-as [RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl).
+as [RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl). It
+incorporates both the original DALIA curations (licensed under CC0) and:
+
+1. Learning resource types are imported from
+   [Hochschulcampus Ressourcentypen](https://github.com/dini-ag-kim/hcrt) (CC0)
+2. Disciplines are imported from
+   [Hochschulfächersystematik](https://github.com/dini-ag-kim/hochschulfaechersystematik)
+   (unlicensed,
+   [see discussion](https://github.com/dini-ag-kim/hochschulfaechersystematik/issues/30))
+3. Licenses - SPDX (unlicensed,
+   [see discussion](https://github.com/spdx/license-list-XML/issues/2597))
+4. Languages - LEXVO (CC-BY-SA-3.0)
+5. MoDALIA (CC0)
 
 ## Summary
 
