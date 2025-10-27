@@ -23,8 +23,11 @@ feedback on any errors.
 ## Exports
 
 The DALIA Knowledge Graph (DALIA-KG) encoded in the DIF v1.3 can be downloaded
-as [RDF](export/dalia-dif13.ttl) or [JSON lines](export/dalia-dif13.jsonl). It
-incorporates both the original DALIA curations (licensed under CC0) and:
+as
+[RDF](https://github.com/data-literacy-alliance/dalia-curation/raw/refs/heads/main/export/dalia-dif13.ttl)
+or
+[JSON lines](https://github.com/data-literacy-alliance/dalia-curation/raw/refs/heads/main/export/dalia-dif13.jsonl).
+It incorporates both the original DALIA curations (licensed under CC0) and:
 
 1. Learning resource types are imported from
    [Hochschulcampus Ressourcentypen](https://github.com/dini-ag-kim/hcrt) (CC0)
