@@ -24,6 +24,7 @@ EXPORT_DIRECTORY.mkdir(exist_ok=True, parents=True)
 CHART_SVG_PATH = EXPORT_DIRECTORY.joinpath("summary.svg")
 CHART_PNG_PATH = EXPORT_DIRECTORY.joinpath("summary.png")
 DIF13_TTL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13.ttl")
+DIF13_FULL_TTL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13-full.ttl")
 DIF13_JSONL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13.jsonl")
 SQLITE_FTI_PATH = EXPORT_DIRECTORY.joinpath("dalia-full-text-index.sqlite")
 
@@ -47,8 +48,10 @@ def export() -> None:
             for record_dif13 in read_dif13(path):
                 record_dif13.add_to_graph(graph_dif13)
                 file.write(record_dif13.model_dump_json())
-    add_background_triples(graph_dif13)
     graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
+
+    add_background_triples(graph_dif13)
+    graph_dif13.serialize(DIF13_FULL_TTL_PATH, format="turtle")
 
     export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
     if SQLITE_FTI_PATH.is_file():
