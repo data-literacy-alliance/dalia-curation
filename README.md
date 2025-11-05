@@ -1,5 +1,7 @@
 # DALIA Curation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17532550.svg)](https://doi.org/10.5281/zenodo.17532550)
+
 This repository contains open educational resources (OERs) curated by the DALIA
 team in the DALIA Interchange Format (DIF).
 
