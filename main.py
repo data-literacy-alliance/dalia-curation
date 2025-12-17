@@ -2,9 +2,10 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "click",
-#     "dalia-dif[export,fti]>=0.0.13",
+#     "dalia-dif[export,fti]>=0.0.16",
 #     "pystow",
 #     "rdflib",
+#     "bioregistry",
 # ]
 # ///
 
@@ -41,11 +42,14 @@ def export() -> None:
     from dalia_dif.dif13.rdf import add_background_triples
     from dalia_dif.dif13.export.fti import write_sqlite_fti
     from dalia_dif.namespace import get_base_graph
+    import bioregistry
+
+    converter = bioregistry.get_default_converter()
 
     graph_dif13 = get_base_graph()
     with DIF13_JSONL_PATH.open("w") as file:
         for path in INPUT_PATHS:
-            for record_dif13 in read_dif13(path):
+            for record_dif13 in read_dif13(path, converter=converter):
                 record_dif13.add_to_graph(graph_dif13)
                 file.write(record_dif13.model_dump_json())
     graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
