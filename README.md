@@ -78,6 +78,10 @@ WHERE {
 }
 ```
 
+The DALIA SPARQL endpoint can be accessed from a web-based interface at
+https://search.dalia.education/sparql and can be accessed programatically at
+https://search.dalia.education/sparql-api.
+
 ## 👋 Attribution
 
 ### ⚖️ License
