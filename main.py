@@ -7,6 +7,9 @@
 #     "rdflib",
 #     "bioregistry",
 # ]
+#
+# [tool.uv.sources]
+# dalia-dif = { path = "../dalia-dif", editable = true }
 # ///
 
 """A CLI for maintaining DALIA-curated OERs."""
