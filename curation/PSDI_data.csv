@@ -1,0 +1,69 @@
+DALIA_ID,Authors,License,Link,Title,Community,Description,Discipline,FileFormat,Keywords,Language,LearningResourceType,MediaType,ProficiencyLevel,PublicationDate,TargetGroup,RelatedWork,Size,Version
+4164b871-1e0a-45f0-822f-03460e78f36a,"Physical Sciences Data Infrastructure * Saul, Louise",CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=18,Version control and Git,,"This course is intended to support researchers in the importance of version control and provide a guide.
+
+Therefore, it is likely that anyone accessing this course would need to understand the code development workflow and have previously developed basic code.
+
+This course is operating system and programming language agnostic. The learning objectives for this course are:
+
+    Understand the principles of version control and how it is effective in research projects
+    Learn about the common version control methods
+    Evaluate how software such as GitHub implements version control and learn the vocabulary associated with this
+
+Whilst there is not an extensive coding requirement in this course, it is helpful if you have a broad understanding of code development and workflows.
+
+This moodle course is intended to provide a brief overview of the use of GitHub for version control. For more extensive documentation on any of the subjects covered here, please view the GitHub documentation pages: https://docs.github.com/en
+
+These are designed to provide easy to access support in the practical use of GitHub for version control.",https://w3id.org/kim/hochschulfaechersystematik/n4,,Version Control * Git * GitHub,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+3fa99778-e796-4c23-8a93-d5738add7ced,"Physical Sciences Data Infrastructure * Saul, Louise",CC-BY-4.0,https://doi.org/10.17605/OSF.IO/Q3Z2E,Resources 2025 ,,No description.,https://w3id.org/kim/hochschulfaechersystematik/n4,.docx * .jpg * .png,,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,isPartOf:https://learn.psdi.ac.uk/moodle/course/view.php?id=18 * isPartOf:https://learn.psdi.ac.uk/moodle/course/view.php?id=24,,
+b87c4412-7f51-4db1-b0d1-3d38ded8aef1,Physical Sciences Data Infrastructure,CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=22,Command Line: Bash and Git ,,"The Learning Objectives for this course are:
+
+    Understand what the shell is in computing
+    Understand simple commands used in the bash shell: 'echo', 'ls', 'which', 'pwd', 'man', 'whom', 'date'
+    Understand and navigate the directory structure using commands 'ls', 'cd', and relative folder names, '..', '.'
+    Understand and use the input, output and error streams from programs in the shell, using redirect '>', append '>>' and pipe '|'
+    Understand and write a bash script to perform a repetitive task in the shell
+
+When answering the quiz questions please be aware that it is an open book quiz. 
+
+You will need to manually mark sections of the course as being complete",https://w3id.org/kim/hochschulfaechersystematik/n5,,Command line * Bash * Git,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+c7cbfd63-05a6-4cf2-9bfa-b9743fe25d2b,Physical Sciences Data Infrastructure,CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=21,Databases,,"This course is intended to give you an overview of the structure of databases, why they are important, how to organise data within a database, and how to query databases. It is suitable for those who have an understanding of tabular data representation and with a background in basic coding.
+
+Learning objectives for this course:
+
+    Understand the differences between different databases
+    Identify instances where SQL can be used in structured databases
+    Learn the basics of SQL statements and commands
+
+",https://w3id.org/kim/hochschulfaechersystematik/n6,,FAIR * Metadata * Identifiers and Collaborative Working * Sharing Work,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+7ff9edd1-5e00-45cf-a586-bedacaf7f619,Physical Sciences Data Infrastructure,CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=23,Research Data Management,,"This course is ideal for researchers at any career stage who would like to learn more about Research Data Management. This course is intended to give a comprehensive introduction; links are provided in the course materials to delve deeper into the content.
+
+The learning objectives for this course are:
+
+    Understand why research data needs to be managed
+    Be able to identify instances where data management is required
+    Evaluate options available to support your data management
+
+",https://w3id.org/kim/hochschulfaechersystematik/n7,,Research Data Management * rdm * Data,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+6449bc4d-7a27-4482-ab9e-1e97ff4ac85d,"Physical Sciences Data Infrastructure * Saul, Louise",CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=24,Literature and Referencing,,"This course introduces the major scholarly outputs that are relevant to physical scientists. It is relevant for researchers.
+
+The learning objectives for this course:
+
+    Identify the different types of scholarly output
+    Understand how to create and record your search strategies
+    Learn how to create and manage your references
+
+",https://w3id.org/kim/hochschulfaechersystematik/n8,,"Literature * Referencing * peer review * Citations * reference managers
+",en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+c654ecdd-4adc-4577-bef2-4934b0662c73,Physical Sciences Data Infrastructure,CC-BY-4.0,https://learn.psdi.ac.uk/moodle/course/view.php?id=19,Ethical Considerations in Research (including AI and responsible data use),,"Learning outcomes for this course:
+
+    Understand the role of ethics
+    Understand the role of the ethics board
+    Think critically about the impact and potential risks of your research, and to approach the ethical approval as an extension of your research
+
+This course will provide a general background to research integrity, the ethical review process, ethics as applied to data in AI/ML, and Responsible Research and Innovation.
+
+It is not intended to guide you through the ethics process precisely, but is to provide a framework for you to reflect on your own practice and to guide you in making informed decisions for responsible research.
+
+It is also not intended to replace applying for approval from an ethical review board.
+",https://w3id.org/kim/hochschulfaechersystematik/n9,,Ethical Considerations in Research * Research Integrity * Ethics Applications * AI/ML research * AI,en,Lecture * Tutorial * https://w3id.org/kim/hcrt/drill_and_practice,video * text * image,novice * advanced beginner,,researcher,,,
+e8acaf0f-a509-4c07-a335-f385cd9817b5,Physical Sciences Data Infrastructure,proprietary,https://www.youtube.com/watch?v=nnsEzHQ0wUs,The research data life cycle,,"The research data life cycle illustrates the different stages that research data goes through, from planning to data reuse. The video of the research data life cycle was made as part of the SciLifeLab Talkshow - Episode 3. What is Datadriven Life Science.",https://w3id.org/kim/hochschulfaechersystematik/n9,,Research * data,en,Lecture,video,novice * advanced beginner,,researcher,isSupplementTo:https://learn.psdi.ac.uk/moodle/course/view.php?id=19,,
