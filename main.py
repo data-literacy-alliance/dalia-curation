@@ -6,6 +6,7 @@
 #     "pystow",
 #     "rdflib",
 #     "bioregistry",
+#     "pandas",
 # ]
 #
 # [tool.uv.sources]
@@ -31,6 +32,7 @@ DIF13_TTL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13.ttl")
 DIF13_FULL_TTL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13-full.ttl")
 DIF13_JSONL_PATH = EXPORT_DIRECTORY.joinpath("dalia-dif13.jsonl")
 SQLITE_FTI_PATH = EXPORT_DIRECTORY.joinpath("dalia-full-text-index.sqlite")
+COMMUNITIES_PATH = HERE.joinpath("communities.csv")
 
 
 @click.group()
@@ -105,6 +107,16 @@ class TestParity(unittest.TestCase):
 def test() -> None:
     """Test that the new output creates the same graphs as the old one."""
     TestParity().test_parity()
+
+
+@main.command(name="format")
+def format_curation() -> None:
+    """Format curated content."""
+    import pandas as pd
+
+    df = pd.read_csv(COMMUNITIES_PATH)
+    df.sort_values("Title", inplace=True)
+    df.to_csv(COMMUNITIES_PATH, index=False)
 
 
 if __name__ == "__main__":
