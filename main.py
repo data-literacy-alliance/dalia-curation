@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "click",
-#     "dalia-dif[export,fti]>=0.0.20",
+#     "dalia-dif[export,fti]>=0.0.21",
 #     "pystow",
 #     "rdflib",
 #     "bioregistry",
@@ -54,7 +54,9 @@ def export() -> None:
     graph_dif13 = get_base_graph()
     with DIF13_JSONL_PATH.open("w") as file:
         for path in INPUT_PATHS:
-            for record_dif13 in read_dif13(path, converter=converter):
+            for record_dif13 in read_dif13(
+                path, converter=converter, communities=COMMUNITIES_PATH
+            ):
                 record_dif13.add_to_graph(graph_dif13)
                 file.write(record_dif13.model_dump_json())
     graph_dif13.serialize(DIF13_TTL_PATH, format="turtle")
@@ -62,7 +64,9 @@ def export() -> None:
     add_background_triples(graph_dif13)
     graph_dif13.serialize(DIF13_FULL_TTL_PATH, format="turtle")
 
-    export_chart(graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH])
+    export_chart(
+        graph_dif13, [CHART_SVG_PATH, CHART_PNG_PATH], communities=COMMUNITIES_PATH
+    )
     if SQLITE_FTI_PATH.is_file():
         SQLITE_FTI_PATH.unlink()
     write_sqlite_fti(graph_dif13, SQLITE_FTI_PATH)
@@ -116,6 +120,7 @@ def format_curation() -> None:
 
     df = pd.read_csv(COMMUNITIES_PATH)
     df.sort_values("Title", inplace=True)
+    df.drop_duplicates(inplace=True)
     df.to_csv(COMMUNITIES_PATH, index=False)
 
 
