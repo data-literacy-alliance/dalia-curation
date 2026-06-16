@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "click",
-#     "dalia-dif[export,fti]>=0.0.21",
+#     "dalia-dif[export,fti]>=0.0.22",
 #     "pystow",
 #     "rdflib",
 #     "bioregistry",
